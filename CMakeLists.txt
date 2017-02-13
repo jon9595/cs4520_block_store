@@ -9,8 +9,16 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -Wshadow -Werror")
 # cmake is popular, so someone on the internet has had your problem before
 
 add_library(bitmap SHARED src/bitmap.c)
+add_library(block_store SHARED src/block_store.c)
+
+include_directories("${CMAKE_SOURCE_DIR}/include")
+
+install(TARGETS bitmap DESTINATION lib)
+install(TARGETS block_store DESTINATION lib)
+INSTALL(FILES include/block_store.h DESTINATION include)
+INSTALL(FILES include/bitmap.h DESTINATION include)
 # already set for shared libs
-# set_target_properties(bitmap PROPERTIES POSITION_INDEPENDENT_CODE ON)
+set_target_properties(bitmap PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # if the test program isn't found in the correct place, you will lose points
 add_executable(${PROJECT_NAME}_test test/tests.cpp)

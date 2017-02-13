@@ -47,14 +47,14 @@ static const uint8_t bit_totals[256] = {B6(0), B6(1), B6(1), B6(2)};
 // There is an alternative for getting bit count that only loops as many times as there are bits set
 // but that's still a loop and this table is 256B.
 /*
-    unsigned int v; // count the number of bits set in v
-    unsigned int c; // c accumulates the total bits set in v
+   unsigned int v; // count the number of bits set in v
+   unsigned int c; // c accumulates the total bits set in v
 
-    for (c = 0; v; v >>= 1)
-    {
-      c += v & 1;
-    }
-*/
+   for (c = 0; v; v >>= 1)
+   {
+   c += v & 1;
+   }
+   */
 
 // A place to generalize the creation process and setup
 bitmap_t *bitmap_initialize(size_t n_bits, BITMAP_FLAGS flags);

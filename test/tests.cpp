@@ -1,11 +1,11 @@
 /*
-* @Author:              Tyler Nivin
-* @Email:               twn346@mail.missouri.edu
-* @Created Date:        Mon Sep 12, 2016, 10:06:36 PM
-* @Last Modified time:  Sat Sep 17, 2016, 01:08:24 AM
-*
-* @Description:
-*/
+ * @Author:              Tyler Nivin
+ * @Email:               twn346@mail.missouri.edu
+ * @Created Date:        Mon Sep 12, 2016, 10:06:36 PM
+ * @Last Modified time:  Sat Sep 17, 2016, 01:08:24 AM
+ *
+ * @Description:
+ */
 
 #include <gtest/gtest.h>
 #include "block_store.h"
@@ -24,20 +24,20 @@ unsigned int score;
 unsigned int total;
 
 class GradeEnvironment : public testing::Environment {
-  public:
-    virtual void SetUp() {
-        score = 0;
+    public:
+        virtual void SetUp() {
+            score = 0;
 #if GRAD_TESTS
-        total = 126;
+            total = 126;
 #else
-        total = 100;
+            total = 100;
 #endif
-    }
-    virtual void TearDown() {
-        ::testing::Test::RecordProperty("points_given", score);
-        ::testing::Test::RecordProperty("points_total", total);
-        std::cout << "SCORE: " << score << '/' << total << std::endl;
-    }
+        }
+        virtual void TearDown() {
+            ::testing::Test::RecordProperty("points_given", score);
+            ::testing::Test::RecordProperty("points_total", total);
+            std::cout << "SCORE: " << score << '/' << total << std::endl;
+        }
 };
 
 int main(int argc, char **argv) {
